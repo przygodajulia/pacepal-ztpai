@@ -2,6 +2,8 @@ version: "3"
 services:
   backend:
     build: ./backend
+    env_file:
+      - .env
     container_name: backend
     ports:
       - "5001:5000"
