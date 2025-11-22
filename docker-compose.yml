@@ -9,6 +9,8 @@ services:
       - "5001:5000"
     networks:
       - webnet
+    depends_on:
+      - rabbitmq
 
   frontend:
     build: ./frontend
@@ -19,6 +21,18 @@ services:
       - CHOKIDAR_USEPOLLING=true
     depends_on:
       - backend
+    networks:
+      - webnet
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"   # port dla AMQP
+      - "15672:15672" # port dla interfejsu webowego
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
     networks:
       - webnet
 
