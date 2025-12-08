@@ -1,18 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getRaceById } from "../api/races"; // we’ll create this helper
+import { getRaceById, signUpForRace } from "../api/races";
 
 function RaceDetailsPage() {
-  const { id } = useParams(); // get race_id from URL
+  const { id } = useParams();
   const [race, setRace] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [signupStatus, setSignupStatus] = useState("");
+  const [signupLoading, setSignupLoading] = useState(false);
+  const [signedUp, setSignedUp] = useState(false); // NEW: track if user registered
 
   useEffect(() => {
     const fetchRace = async () => {
       try {
         const res = await getRaceById(id);
         setRace(res.data);
+
+        // Optional: check if user is already registered
+        if (res.data.isRegistered) { 
+          setSignedUp(true);
+          setSignupStatus("You are already registered for this race!");
+        }
       } catch (err) {
         console.error("Failed loading race:", err);
         setError("Race not found or you are not authorized.");
@@ -24,11 +33,27 @@ function RaceDetailsPage() {
     fetchRace();
   }, [id]);
 
+  const handleSignUp = async () => {
+    setSignupLoading(true);
+    setSignupStatus("");
+    try {
+      const res = await signUpForRace(id);
+      setSignupStatus("You have successfully registered for this race!");
+      setSignedUp(true); // disable the button after signup
+    } catch (err) {
+      console.error("Sign up failed:", err);
+      const message =
+        err.response?.data?.error || "Failed to sign up for race";
+      setSignupStatus(message);
+    } finally {
+      setSignupLoading(false);
+    }
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!race) return null;
 
-  // Format date
   const formattedDate = new Date(race.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -61,7 +86,7 @@ function RaceDetailsPage() {
         </div>
       </nav>
 
-      {/* MAIN */}
+      {/* MAIN CONTENT */}
       <main>
         <div className="race-details-main-container dark-gray-box-style gray-mobile-box">
           <div className="smaller-padding-and-margin displayed-races-single-container no-shadow">
@@ -87,12 +112,21 @@ function RaceDetailsPage() {
               <p className="race-details-text">${race.price}</p>
             </div>
 
-            <form className="race-details-form" action="/sign_up" method="GET">
-              <input type="hidden" name="race_id" value={race.raceid} />
-              <button className="smaller-race-details-button blue-button race-details-button" type="submit">
-                Sign Up!
-              </button>
-            </form>
+            {/* SIGN UP BUTTON */}
+            <button
+              className="smaller-race-details-button blue-button race-details-button"
+              onClick={handleSignUp}
+              disabled={signupLoading || signedUp}
+            >
+              {signupLoading ? "Signing up..." : signedUp ? "Registered" : "Sign Up!"}
+            </button>
+
+            {/* SIGNUP STATUS MESSAGE */}
+            {signupStatus && (
+              <p style={{ marginTop: "10px", fontWeight: "bold", color: "green" }}>
+                {signupStatus}
+              </p>
+            )}
           </div>
 
           <div className="race-details-add-description">

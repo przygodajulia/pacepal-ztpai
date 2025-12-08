@@ -17,3 +17,6 @@ export const getAllRaces = () =>
 
 export const getRaceById = (id) =>
   axios.get(`${backendUrl}/races/${id}`, authHeader());
+
+export const signUpForRace = (raceId) =>
+  axios.post(`${backendUrl}/races/${raceId}/signup`, {}, authHeader());
