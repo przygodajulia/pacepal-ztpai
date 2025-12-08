@@ -1,0 +1,916 @@
+@media (max-width: 800px) {
+
+    /* --------------------common elements------------------------*/
+    .gray-mobile-box {
+        background-color: #D9D9D9;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        border-radius: 15px;
+    }
+    .light-gray-box-style {
+        background-color: #F3F2F2;
+        width: 95%;
+        padding: 0.2rem;
+        margin: 0.2rem;
+        border-radius: 15px;
+    }
+    .gray-mobile-box-filter {
+        background-color: #F3F2F2;
+    }
+    .default-smaller-header {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: left;
+        margin-left: 0.8rem;
+    }
+    .filters-races {
+        width: 90%;
+        text-align: left;
+    }
+    .icon-text-container {
+        padding: 0.4rem;
+    }
+    .mobile-menu-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin: 0;
+        width: 20vh;
+        height: 100vh;
+        background-color: #D9D9D9;
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.15);
+        z-index: 1;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        text-align: left;
+        font-weight: 600;
+        border: none;
+    }
+    .mobile-menu-container ul {
+        list-style-type: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .mobile-menu-container ul li {
+        margin-bottom: 1rem;
+    }
+    .mobile-menu-container.show-menu {
+        display: flex;
+    }
+    /* ------------------navigation and headers-------------------*/
+    .default-nav-list {
+        display: none;
+    }
+    header {
+        height: 15vh;
+        width: 100%;
+    }
+    .default-header-text {
+        font-size: 2rem;
+        margin-left: 0.4rem;
+        font-weight: 600;
+    }
+    .header-img {
+        width: 4rem;
+        margin-left: 0.4rem;
+    }
+    .mobile-menu-icon {
+        width: 20%;
+        height: 40%;
+        align-self: center;
+    }
+    /* --------------------------forms----------------------------*/
+    /*--------------------------buttons---------------------------*/
+    .bigger-button-size {
+        width: 80%;
+    }
+    .big-purple-button {
+        width: 30%;
+        font-size: 0.8rem;
+        padding: 0.6rem;
+        margin: 0.4rem;
+    }
+    .blue-button {
+        background-color: #56A9D8;
+        font-family: Raleway, sans-serif;
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        padding: 0.4rem;
+        margin: 1rem;
+        align-self: center;
+        width: 45%;
+    }
+    .yellow-button {
+        background-color: #F9B872;
+        font-family: Raleway, sans-serif;
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        padding: 0.4rem;
+        margin-left: 0.4rem;
+        align-self: center;
+        width: 70%;
+    }
+    .smaller-button {
+        width: 50%;
+        margin: 0 0 0 2.5rem;
+    }
+    /* ---------------------login screen--------------------------*/
+    .login-forms-main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .single-login-form-1 {
+        height: 70%;
+        width: 80%;
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .single-login-form-2 {
+        display: none;
+    }
+    .create-subtitle {
+        align-self: center;
+        justify-self: center;
+        font-size: 0.9rem;
+    }
+    .mobile-additional-login-page{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+    }
+    /* -----------------races calendar screen---------------------*/
+    .displayed-races-single-container {
+        display: grid;
+        grid-template-columns: 40% 60%;;
+        grid-template-rows: 2fr 1fr 1fr;
+
+    }
+    .search-container {
+        width: 90%;
+        text-align: left;
+    }
+    .search-input {
+        width: 85%;
+
+    }
+    .default-race-img {
+        width: 100%;
+        height: 85%;
+        border-radius: 15px;
+    }
+    .races-img {
+        align-self: center;
+        justify-self: center;
+    }
+    .race-calendar-header {
+        align-self: center;
+        justify-self: center;
+    }
+    .race-details-small-icon {
+        margin-left: 0.4rem;
+        width: 50%;
+        height: 50%;
+    }
+    .mobile-races-date-icon {
+        width: 30%;
+        height: 52%;
+    }
+    .race-details-text {
+        margin: 0 0 0 0.4rem;
+        padding-top: 0;
+        justify-self: start;
+        align-self: start;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .races-calendar-button {
+        grid-column: 2;
+        grid-row: 3;
+        width: 80%;
+        justify-self: start;
+        align-self: start;
+        margin-left: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        font-weight: 600;
+    }
+    /* -----------------race details screen---------------------*/
+    .smaller-race-details-button {
+        width: 50%;
+        margin-top: -0.5rem;
+    }
+    .race-details-button {
+        width: 80%;
+        justify-self: start;
+        align-self: start;
+        margin-left: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        font-weight: 600;
+
+    }
+    .race-details-paragraph {
+        margin-left: 0.8rem;
+        margin-right: 0.8rem;
+    }
+    /* -------------------my races screen-----------------------*/
+    .my-races-single-container {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 1fr 1fr;
+        align-items: center;
+        justify-self: center;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+    .my-races-img {
+        grid-column: 1;
+        grid-row: 1;
+        width: 60%;
+    }
+    .my-races-small-icon {
+        width: 30%;
+    }
+    .my-races-icon-text {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: center;
+        justify-self: start;
+        margin-left: 0;
+    }
+    .my-races-button {
+        align-self: center;
+        justify-self: start;
+        margin-top: -0.4rem;
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .my-races-form {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: center;
+    }
+    .my-races-results {
+        width: 80%;
+    }
+    /* -------------------my account screen-----------------------*/
+    .my-account-main-container {
+        position: relative;
+    }
+    .my-account-name-header-desktop {
+        display: none;
+    }
+    .my-account-header-container {
+        display: flex;
+    }
+    .my-account-mobile-box {
+        background-color: #F3F2F2;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+    }
+    .my-account-icon {
+        width: 20%;
+        margin: 0.4rem;
+    }
+    .my-account-name-header-mobile {
+        align-self: center;
+        justify-self: center;
+    }
+    .separator {
+        margin-top: 0.8rem;
+    }
+    .my-account-form form {
+        width: 100%;
+    }
+    /* -------------------my account screen-----------------------*/
+    .admin-view-single-container {
+        display: grid;
+        width: 100%;
+        grid-template-rows: 20% 20% 60%;
+        border-bottom: 1px solid black;
+        align-items: start;
+        justify-items: start;
+    }
+    .admin-header {
+        grid-row: 1;
+        font-weight: 500;
+        text-align: center;
+    }
+    .admin-p {
+        grid-row: 2;
+    }
+    .admin-form {
+        grid-row: 3;
+        display: flex;
+    }
+    .admin-input {
+        margin-left: 0.2rem;
+    }
+
+}
+
+@media (min-width: 801px) {
+
+    /* --------------------common elements------------------------*/
+    .light-gray-box-style {
+        background-color: #F3F2F2;
+        padding: 0.8rem;
+        margin: 0.8rem;
+        border-radius: 15px;
+    }
+    .dark-gray-box-style{
+        background-color: #D9D9D9;
+        padding: 0.8rem;
+        border-radius: 15px;
+        margin: 0.8rem;
+    }
+    .default-smaller-header {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: left;
+        margin-left: 0.4rem;
+    }
+    .icon-text-container {
+        padding: 0.6rem;
+    }
+    .mobile-menu-icon {
+        display: none;
+    }
+    .mobile-menu-container {
+        display: none;
+    }
+
+    /* ------------------navigation and headers-------------------*/
+    .header-img {
+        width: 5rem;
+        margin-left: 1rem;
+    }
+    .default-header-text {
+        font-size: 2.5rem;
+        margin-left: 0.4rem;
+        font-weight: 600;
+    }
+    .default-nav-list ul {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 2rem;
+    }
+
+    .default-nav-list li {
+        margin-right: 1rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    /* --------------------------forms----------------------------*/
+    /*--------------------------buttons---------------------------*/
+    .big-purple-button {
+        width: 30%;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+    .blue-button {
+        background-color: #56A9D8;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        font-family: Raleway, sans-serif;
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        padding: 0.4rem;
+        margin: 1rem;
+        align-self: center;
+        width: 45%;
+    }
+    .yellow-button {
+        background-color: #F9B872;
+        font-family: Raleway, sans-serif;
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        padding: 0.4rem;
+        margin: 1rem;
+        align-self: center;
+        width: 45%;
+    }
+    .smaller-button {
+        width: 20%;
+    }
+    /* ---------------------login screen--------------------------*/
+    .mobile-additional-login-page {
+        display: none;
+    }
+    .single-login-form {
+        height: 75%;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-left: 2rem;
+        margin-right: 2rem;
+
+    }
+    .single-login-form-1 {
+        width: 25%;
+        height: 70%;
+    }
+    .single-login-form-2 {
+        width: 25%;
+        height: 95%;
+    }
+    /* -----------------races calendar screen---------------------*/
+    .filters-races {
+        width: 90%;
+        text-align: left;
+    }
+    .search-container {
+        width: 90%;
+        text-align: left;
+    }
+    .search-input {
+        width: 95%;
+
+    }
+    .displayed-races-single-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 35% repeat(3, 1fr);
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+    .default-race-img {
+        grid-column: 1;
+        grid-row: span 4;
+        width: 90%;
+        height: 80%;
+        border-radius: 15px;
+        align-self: center;
+        justify-self: center;
+    }
+    .race-calendar-header {
+        grid-column: 2 / 4;
+        grid-row: 1;
+        align-self: center;
+    }
+    .icon-text-container {
+        margin-left: 0.4rem;
+    }
+    .icon-text-container-1 {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .icon-text-container-2 {
+        grid-column: 2;
+        grid-row: 3;
+    }
+    .icon-text-container-3 {
+        grid-column: 2;
+        grid-row: 4;
+    }
+    .races-calendar-button {
+        grid-column: 4;
+        grid-row: 1;
+        width: 75%;
+        justify-self: center;
+        align-self: end;
+        margin-right: 0;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        font-weight: 600;
+    }
+    .race-details-small-icon {
+        width: 20%;
+        height: 50%;
+    }
+    .race-details-text {
+        margin-top: 0;
+        margin-left: 0.6rem;
+        font-weight: 500;
+    }
+    /* -----------------race details screen---------------------*/
+    .race-details-smaller-img {
+        border-radius: 15px;
+        justify-self: center;
+        margin: 0.6rem;
+
+    }
+    .race-details-header {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 0;
+        margin: 1.6rem 0 0 0.6rem;
+        font-weight: 500;
+        align-self: start;
+    }
+    .race-details-icon-text-1 {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .race-details-icon-text-2 {
+        grid-column: 2;
+        grid-row: 3;
+    }
+    .race-details-icon-text-3 {
+        grid-column: 2;
+        grid-row: 4;
+    }
+    .smaller-padding-and-margin {
+        padding: 0;
+        margin-left: 0;
+    }
+    .race-details-form {
+        grid-column: 4;
+        grid-row: 1;
+        justify-self: end;
+    }
+    .smaller-race-details-button {
+        margin: 0.7rem;
+        width: 50%;
+    }
+    .race-details-paragraph {
+        margin-left: 0.4rem;
+        margin-right: 0.4rem;
+    }
+    .race-details-button {
+        width: 80%;
+        justify-self: start;
+        align-self: start;
+        /*margin-left: 1rem;*/
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        font-weight: 600;
+    }
+    /* -------------------my races screen-----------------------*/
+    .my-races-single-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        min-height: 20vh;
+        max-height: 20vh;
+
+    }
+    .my-races-img {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        align-self: center;
+    }
+    .my-races-header {
+        grid-column: 2 span / 3;
+        grid-row: 1;
+    }
+    .my-races-small-icon {
+        width: 20%;
+        height: 50%;
+    }
+    .my-races-icon-text {
+        grid-column: 2;
+        max-height: 100px;
+        margin-top: 0;
+    }
+    .my-races-button {
+        align-self: center;
+        justify-self: end;
+        grid-column: 3;
+        grid-row: 1;
+    }
+    .my-races-form {
+        grid-column: 4;
+        grid-row: 1;
+    }
+    .my-races-results {
+        width: 80%;
+    }
+    /* -------------------my account screen-----------------------*/
+    .my-account-name-header-mobile {
+        display: none;
+    }
+    .my-account-main-container {
+        display: grid;
+        grid-template-columns: 20% 80%;
+    }
+    .my-account-header-container{
+        grid-column: 1;
+    }
+    .my-account-user-data-container {
+        grid-column: 2;
+        position: relative;
+    }
+    .my-account-icon {
+        width: 80%;
+        justify-self: center;
+        margin: 0.8rem;
+        margin-top: 1.2rem;
+    }
+    .my-account-form {
+        margin-left: 0;
+    }
+    .my-account-form input{
+        width: 35%;
+    }
+    .my-account-button {
+        position: absolute;
+        bottom: 0;
+        width: 20%;
+    }
+    .my-account-button-1 {
+        left: 0;
+    }
+    .my-account-button-2 {
+        right: 0;
+    }
+
+    /* -------------------admin view screen-----------------------*/
+    .admin-view-single-container {
+        display: grid;
+        grid-template-columns: 30% 10% 60%;
+        border-bottom: 1px solid black;
+        align-items: center;
+        justify-items: start;
+    }
+    .admin-header {
+        grid-column: 1;
+        font-weight: 500;
+    }
+    .admin-p {
+        grid-column: 2;
+    }
+    .admin-form {
+        grid-column: 3;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .admin-button {
+        justify-self: center;
+    }
+
+}
+
+/* --------------------common elements------------------------*/
+body, html {
+    font-family: Raleway, sans-serif;
+    background: #F7F9FA;
+    margin: 0;
+    width: 100%;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    width: 100%;
+    font-size: 0.8rem;
+    background-color: #D9D9D9;
+    border-radius: 15px 15px 0px 0px;
+}
+.races-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.displayed-races {
+    width: 90%;
+}
+.icon-text-container {
+    width: 50%;
+    display: flex;
+}
+.messages {
+    text-align: center;
+}
+.mark-current {
+    font-weight: bolder;
+}
+.info-mess-text {
+    text-align: center;
+    font-size: smaller;
+}
+.admin-input {
+    box-shadow: none;
+    background-color: #D9D9D9;
+}
+.admin-input {
+    font-family: Raleway, sans-serif;
+    border-radius: 15px;
+}
+/* --------------common elements - js formatting -----------------*/
+.filter-options {
+    display: none;
+    position: absolute;
+    min-width: 45%;
+    max-height: 50%;
+    overflow-y: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    backdrop-filter: opacity(20%);
+    background-color: #56A9D8;
+}
+
+.filter-option {
+    cursor: pointer;
+    padding: 8px 16px;
+    display: block;
+    background-color: #56A9D8;
+    font-family: Raleway, sans-serif;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    border: 2px solid transparent;
+    margin: 1rem;
+    align-self: center;
+    width: 50%;
+    text-align: center;
+}
+
+.filter-option:hover {
+    font-weight: 800;
+    font-size: larger;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.no-valid {
+    border: 2px solid #F74F4F;
+    border-radius: 10px;
+    outline: none;
+}
+.no-shadow {
+    box-shadow: none;
+}
+/* ------------------navigation and headers----------------------*/
+header {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #F9B872;
+    border-radius: 0px 0px 15px 15px;
+}
+nav {
+    height: 15vh;
+    background-color: #F9B872;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0px 0px 15px 15px;
+    padding: 0.8rem;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+}
+nav a:hover, nav a:focus {
+    font-weight: 600;
+    text-decoration: underline;
+}
+.default-nav-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+/* --------------------------forms-----------------------------*/
+form {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+}
+input {
+    background-color: #D9D9D9;
+    font-family: Raleway, sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem 1.2rem;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+/*--------------------------buttons-----------------------------*/
+.big-purple-button {
+    background-color: #D9D9D9;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    border-radius: 10px;
+    font-weight: 600;
+    border: 2px solid #B89EE1;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+/* ---------------------login screen---------------------------*/
+.simple-login-header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+}
+.login-icon {
+    width: 15%;
+    margin-top: 0.5rem;
+}
+.login-forms-main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+}
+.single-login-form-style {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: white;
+    border-radius: 15px;
+}
+/* -----------------races calendar screen---------------------*/
+.box-filters-race-calendar {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* -------------------my races screen-----------------------*/
+.my-races-img {
+    width: 95%;
+    height: 95%;
+    border-radius: 15px;
+}
+.my-races-small-icon {
+    align-self: start;
+    height: 30%;
+}
+.my-races-text {
+    align-self: start;
+    margin: 0 0 0 0.6rem;
+    font-weight: 500;
+}
+.my-races-header {
+    grid-column: 2 / span 4;
+    font-weight: 500;
+    align-self: start;
+}
+/* -------------------my account screen-----------------------*/
+.separator {
+    border-top: 1px solid #000;
+    width: 100%;
+}
+.my-account-form input{
+    margin-left: 0;
+    margin-top: 0.2rem;
+}
+.my-account-header {
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+
+/* -------------------admin view screen----------------------*/
+.spacer-cell {
+    border-top: 1px solid #ccc;
+    padding: 5px;
+}
+
+.races-results {
+    width: 90%;
+    margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}

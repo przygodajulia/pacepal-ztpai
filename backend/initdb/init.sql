@@ -22,6 +22,33 @@ CREATE TABLE IF NOT EXISTS races (
     distance    VARCHAR
 );
 
+-- Insert sample races
+INSERT INTO races (title, location, date, price, description, imageurl, distance) VALUES
+('Berlin Marathon', 'Berlin, Germany', '2025-09-28', 120.00,
+ 'One of the fastest and most iconic marathons in the world.',
+ '/img/run1.jpeg',
+ '42.2 km'),
+
+('London Marathon', 'London, UK', '2025-04-26', 140.00,
+ 'A world major marathon through the heart of London.',
+ '/img/run2.jpg',
+ '42.2 km'),
+
+('Paris Half Marathon', 'Paris, France', '2025-03-02', 65.00,
+ 'Scenic half marathon passing many famous landmarks.',
+ '/img/run3.jpg',
+ '21.1 km'),
+
+('NYC 10K Classic', 'New York, USA', '2025-06-10', 45.00,
+ 'Popular 10K race in Central Park.',
+ '/img/run4.jpg',
+ '10 km'),
+
+('Tokyo Night Run', 'Tokyo, Japan', '2025-10-15', 55.00,
+ 'Evening race with an amazing neon-city atmosphere.',
+ '/img/run2.jpg',
+ '15 km');
+
 -- ALTER TABLE races OWNER TO docker;
 
 -- USER REGISTRATIONS
