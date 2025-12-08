@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { router: authRoutes } = require("./routes/auth"); // import the router
+const { router: racesRouter } = require("./routes/races");
 
 const app = express();
 app.use(cors());
@@ -8,6 +9,7 @@ app.use(express.json());
 
 // Attach routes
 app.use("/auth", authRoutes);
+app.use("/races", racesRouter);
 
 // Test route
 app.get("/api", (req, res) => res.json({ message: "Backend works" }));
