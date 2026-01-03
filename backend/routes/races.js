@@ -85,4 +85,36 @@ router.post("/:id/signup", requireAuth, async (req, res) => {
     }
   });  
 
+// Get available distances (protected)
+router.get("/filters/distances", requireAuth, async (req, res) => {
+  try {
+    const query = `
+      SELECT DISTINCT distance
+      FROM races
+      ORDER BY distance
+    `;
+    const { rows } = await db.query(query);
+    res.json(rows);
+  } catch (err) {
+    console.error("Error loading distances:", err);
+    res.status(500).json({ error: "Failed to fetch distances" });
+  }
+});
+
+// Get available locations (protected)
+router.get("/filters/locations", requireAuth, async (req, res) => {
+  try {
+    const query = `
+      SELECT DISTINCT location
+      FROM races
+      ORDER BY location
+    `;
+    const { rows } = await db.query(query);
+    res.json(rows);
+  } catch (err) {
+    console.error("Error loading locations:", err);
+    res.status(500).json({ error: "Failed to fetch locations" });
+  }
+});
+
 module.exports = { router };

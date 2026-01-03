@@ -1,54 +1,96 @@
 import { useEffect, useState } from "react";
-import { getAllRaces } from "../api/races"; // we will create this API helper
+import {
+  getAllRaces,
+  getRaceDistances,
+  getRaceLocations,
+} from "../api/races";
 import RaceCard from "../components/Races/RaceCard";
 
 function RacesPage() {
   const [races, setRaces] = useState([]);
   const [search, setSearch] = useState("");
 
-  // Load races from backend
+  const [distances, setDistances] = useState([]);
+  const [locations, setLocations] = useState([]);
+
+  const [dateFilter, setDateFilter] = useState(null); // "past" | "upcoming"
+  const [distanceFilter, setDistanceFilter] = useState(null);
+  const [locationFilter, setLocationFilter] = useState(null);
+
+  // Toggle dropdowns
+  const [showDates, setShowDates] = useState(false);
+  const [showDistances, setShowDistances] = useState(false);
+  const [showLocations, setShowLocations] = useState(false);
+
+  // Load races + filter data
   useEffect(() => {
-    const fetchRaces = async () => {
+    const fetchData = async () => {
       try {
-        const res = await getAllRaces();
-        setRaces(res.data);
+        const [racesRes, distancesRes, locationsRes] = await Promise.all([
+          getAllRaces(),
+          getRaceDistances(),
+          getRaceLocations(),
+        ]);
+
+        setRaces(racesRes.data);
+        setDistances(distancesRes.data);
+        setLocations(locationsRes.data);
       } catch (err) {
-        console.error("Failed loading races:", err);
+        console.error("Failed loading races or filters:", err);
       }
     };
 
-    fetchRaces();
+    fetchData();
   }, []);
 
-  // Filter by search
-  const filteredRaces = races.filter((r) =>
-    r.title.toLowerCase().includes(search.toLowerCase())
-  );
+  // Apply filters
+  const today = new Date();
+
+  const filteredRaces = races.filter((race) => {
+    const raceDate = new Date(race.date);
+
+    if (search && !race.title.toLowerCase().includes(search.toLowerCase()))
+      return false;
+
+    if (dateFilter === "past" && raceDate >= today) return false;
+    if (dateFilter === "upcoming" && raceDate < today) return false;
+
+    if (distanceFilter && race.distance !== distanceFilter) return false;
+    if (locationFilter && race.location !== locationFilter) return false;
+
+    return true;
+  });
 
   return (
     <div>
       {/* NAVBAR */}
       <nav>
         <div className="default-nav-header">
-          <img className="header-img" src="/img/running_girl.png" alt="main logo" />
+          <img
+            className="header-img"
+            src="/img/running_girl.png"
+            alt="main logo"
+          />
           <h1 className="default-header-text">Pacepal</h1>
         </div>
 
         <div className="default-nav-list">
           <ul>
-            <li><a className="nav-link mark-current" href="/races">Races Calendar</a></li>
-            <li><a className="nav-link" href="/my_races">My Races</a></li>
-            <li><a className="nav-link" href="/my_account">My Account</a></li>
-          </ul>
-        </div>
-
-        <img className="mobile-menu-icon" src="/img/menu.png" alt="menu icon" />
-        <div className="mobile-menu-container">
-          <ul>
-            <li><a href="/races">Races Calendar</a></li>
-            <li><a href="/my_races">My Races</a></li>
-            <li><a href="/my_account">My Account</a></li>
-            <li><a href="/races">Close</a></li>
+            <li>
+              <a className="nav-link mark-current" href="/races">
+                Races Calendar
+              </a>
+            </li>
+            <li>
+              <a className="nav-link" href="/my_races">
+                My Races
+              </a>
+            </li>
+            <li>
+              <a className="nav-link" href="/my_account">
+                My Account
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -56,7 +98,6 @@ function RacesPage() {
       {/* MAIN */}
       <main>
         <div className="races-main-container">
-
           {/* SEARCH */}
           <div className="search-container">
             <h2 className="default-smaller-header">Search</h2>
@@ -70,26 +111,78 @@ function RacesPage() {
             </div>
           </div>
 
-          {/* FILTERS (static for now — functional later) */}
+          {/* FILTERS */}
           <div className="filters-races">
             <h2 className="default-smaller-header">Filters</h2>
             <div className="box-filters-race-calendar light-gray-box-style gray-mobile-box-filter">
-              <button className="big-purple-button" type="button" id="filter-dates">
+              {/* DATES */}
+              <button
+                className="big-purple-button"
+                type="button"
+                onClick={() => setShowDates((prev) => !prev)}
+              >
                 Dates
               </button>
-              <div className="date-options filter-options">
-                {/* Months dynamically later */}
-              </div>
+              {showDates && (
+                <div className="date-options filter-options">
+                  <button
+                    className="date-option filter-option"
+                    onClick={() => setDateFilter("upcoming")}
+                  >
+                    Upcoming
+                  </button>
+                  <button
+                    className="date-option filter-option"
+                    onClick={() => setDateFilter("past")}
+                  >
+                    Past
+                  </button>
+                </div>
+              )}
 
-              <button className="big-purple-button" type="button" id="filter-distance">
+              {/* DISTANCE */}
+              <button
+                className="big-purple-button"
+                type="button"
+                onClick={() => setShowDistances((prev) => !prev)}
+              >
                 Distance
               </button>
-              <div className="distance-options filter-options"></div>
+              {showDistances && (
+                <div className="distance-options filter-options">
+                  {distances.map((d) => (
+                    <button
+                      key={d.distance}
+                      className="distance-option filter-option"
+                      onClick={() => setDistanceFilter(d.distance)}
+                    >
+                      {d.distance}
+                    </button>
+                  ))}
+                </div>
+              )}
 
-              <button className="big-purple-button" type="button" id="filter-location">
+              {/* LOCATION */}
+              <button
+                className="big-purple-button"
+                type="button"
+                onClick={() => setShowLocations((prev) => !prev)}
+              >
                 Location
               </button>
-              <div className="location-options filter-options"></div>
+              {showLocations && (
+                <div className="location-options filter-options">
+                  {locations.map((l) => (
+                    <button
+                      key={l.location}
+                      className="location-option filter-option"
+                      onClick={() => setLocationFilter(l.location)}
+                    >
+                      {l.location}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -104,7 +197,6 @@ function RacesPage() {
               </section>
             </div>
           </div>
-
         </div>
       </main>
 
