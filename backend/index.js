@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { router: authRoutes } = require("./routes/auth");
+const authRoutes = require("./routes/auth");
 const racesRouter = require("./routes/races");
 const myRacesRouter = require("./routes/myraces");
 const userRouter = require("./routes/user");
