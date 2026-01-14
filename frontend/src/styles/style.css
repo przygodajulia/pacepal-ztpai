@@ -732,6 +732,10 @@ footer {
     background-color: #56A9D8;
 }
 
+.filter-options.show {
+    display: block;
+}
+
 .filter-option {
     cursor: pointer;
     padding: 8px 16px;

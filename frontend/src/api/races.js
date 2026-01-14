@@ -12,6 +12,8 @@ const authHeader = () => {
   };
 };
 
+// ------------------ RACES ------------------
+
 export const getAllRaces = () =>
   axios.get(`${backendUrl}/races`, authHeader());
 
@@ -20,3 +22,11 @@ export const getRaceById = (id) =>
 
 export const signUpForRace = (raceId) =>
   axios.post(`${backendUrl}/races/${raceId}/signup`, {}, authHeader());
+
+// ------------------ FILTER DATA ------------------
+
+// export const getRaceDistances = () =>
+//   axios.get(`${backendUrl}/races/filters/distances`, authHeader());
+
+// export const getRaceLocations = () =>
+//   axios.get(`${backendUrl}/races/filters/locations`, authHeader());
