@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-const { router: authRoutes } = require("./routes/auth"); // import the router
+const { router: authRoutes } = require("./routes/auth");
 const racesRouter = require("./routes/races");
-const { router: myRacesRouter } = require("./routes/myraces");
+const myRacesRouter = require("./routes/myraces");
 const { router: userRouter } = require("./routes/user");
 
 const app = express();
