@@ -25,8 +25,8 @@ export const signUpForRace = (raceId) =>
 
 // ------------------ FILTER DATA ------------------
 
-export const getRaceDistances = () =>
-  axios.get(`${backendUrl}/races/filters/distances`, authHeader());
+// export const getRaceDistances = () =>
+//   axios.get(`${backendUrl}/races/filters/distances`, authHeader());
 
-export const getRaceLocations = () =>
-  axios.get(`${backendUrl}/races/filters/locations`, authHeader());
+// export const getRaceLocations = () =>
+//   axios.get(`${backendUrl}/races/filters/locations`, authHeader());
