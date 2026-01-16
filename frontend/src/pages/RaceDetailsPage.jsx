@@ -123,7 +123,7 @@ function RaceDetailsPage() {
 
             {/* SIGNUP STATUS MESSAGE */}
             {signupStatus && (
-              <p style={{ marginTop: "10px", fontWeight: "bold", color: "green" }}>
+              <p style={{ marginTop: "10px", fontWeight: "bold", color: "black" }}>
                 {signupStatus}
               </p>
             )}
