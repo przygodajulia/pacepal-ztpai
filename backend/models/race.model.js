@@ -34,9 +34,17 @@ const registerUser = async (userId, raceId) => {
   );
 };
 
+const getRaceDateById = async (raceId) => {
+  return db.query(
+    "SELECT date FROM races WHERE raceid = $1",
+    [raceId]
+  );
+};
+
 module.exports = {
   getAllRaces,
   getRaceById,
   isUserRegistered,
-  registerUser
+  registerUser,
+  getRaceDateById
 };

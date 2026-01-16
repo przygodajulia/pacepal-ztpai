@@ -1,0 +1,27 @@
+# ignore ALL node_modules everywhere
+**/node_modules
+
+# frontend build artifacts
+frontend/dist
+frontend/build
+frontend/.next
+frontend/node_modules
+
+# backend build artifacts
+backend/dist
+
+# caches
+**/.cache
+**/.vite
+**/.turbo
+
+# vcs
+.git
+.gitignore
+
+# env & logs
+.env*
+**/*.log
+
+# OS junk
+.DS_Store
