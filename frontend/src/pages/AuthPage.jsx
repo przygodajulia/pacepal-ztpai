@@ -1,6 +1,5 @@
 import LoginForm from "../components/Auth/LoginForm";
 import RegisterForm from "../components/Auth/RegisterForm";
-// import MobileRegister from "../components/Auth/MobileRegister";
 
 function AuthPage() {
   return (
