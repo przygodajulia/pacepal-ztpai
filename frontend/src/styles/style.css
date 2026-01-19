@@ -58,6 +58,15 @@
     .mobile-menu-container.show-menu {
         display: flex;
     }
+    .mobile-menu-container button {
+        background: none;
+        border: none;
+        color: black;
+        font-weight: 500;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 0;
+      }
     /* ------------------navigation and headers-------------------*/
     .default-nav-list {
         display: none;

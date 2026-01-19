@@ -40,6 +40,7 @@ function RacesPage() {
           <h1 className="default-header-text">Pacepal</h1>
         </div>
 
+        {/* DESKTOP NAV */}
         <div className="default-nav-list">
           <ul>
             <li>
@@ -56,6 +57,38 @@ function RacesPage() {
               <a className="nav-link" href="/my_account">
                 My Account
               </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* MOBILE MENU ICON */}
+        <img
+          className="mobile-menu-icon"
+          src="/img/menu.png"
+          alt="menu icon"
+          onClick={() =>
+            document
+              .querySelector(".mobile-menu-container")
+              .classList.toggle("show-menu")
+          }
+        />
+
+        {/* MOBILE MENU */}
+        <div className="mobile-menu-container">
+          <ul>
+            <li><a href="/races">Races Calendar</a></li>
+            <li><a href="/my_races">My Races</a></li>
+            <li><a href="/my_account">My Account</a></li>
+            <li>
+              <button
+                onClick={() =>
+                  document
+                    .querySelector(".mobile-menu-container")
+                    .classList.remove("show-menu")
+                }
+              >
+                Close
+              </button>
             </li>
           </ul>
         </div>
