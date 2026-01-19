@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getRaceById, signUpForRace } from "../api/races";
+import Navbar from "../components/Layout/Navbar";
+import Footer from "../components/Layout/Footer";
 
 function RaceDetailsPage() {
   const { id } = useParams();
@@ -18,7 +20,7 @@ function RaceDetailsPage() {
         setRace(res.data);
 
         // Optional: check if user is already registered
-        if (res.data.isRegistered) { 
+        if (res.data.isRegistered) {
           setSignedUp(true);
           setSignupStatus("You are already registered for this race!");
         }
@@ -37,7 +39,7 @@ function RaceDetailsPage() {
     setSignupLoading(true);
     setSignupStatus("");
     try {
-      const res = await signUpForRace(id);
+      await signUpForRace(id);
       setSignupStatus("You have successfully registered for this race!");
       setSignedUp(true); // disable the button after signup
     } catch (err) {
@@ -63,28 +65,7 @@ function RaceDetailsPage() {
   return (
     <div>
       {/* NAVBAR */}
-      <nav>
-        <div className="default-nav-header">
-          <img className="header-img" src="/img/running_girl.png" alt="main logo" />
-          <h1 className="default-header-text">Pacepal</h1>
-        </div>
-        <div className="default-nav-list">
-          <ul>
-            <li><a className="nav-link" href="/races">Races Calendar</a></li>
-            <li><a className="nav-link" href="/my_races">My Races</a></li>
-            <li><a className="nav-link" href="/my_account">My Account</a></li>
-          </ul>
-        </div>
-        <img className="mobile-menu-icon" src="/img/menu.png" alt="menu icon" />
-        <div className="mobile-menu-container">
-          <ul>
-            <li><a href="/races">Races Calendar</a></li>
-            <li><a href="/my_races">My Races</a></li>
-            <li><a href="/my_account">My Account</a></li>
-            <li><a href="/races">Close</a></li>
-          </ul>
-        </div>
-      </nav>
+      <Navbar current="races" />
 
       {/* MAIN CONTENT */}
       <main>
@@ -137,9 +118,7 @@ function RaceDetailsPage() {
       </main>
 
       {/* FOOTER */}
-      <footer>
-        <p>&copy; 2024 Pacepal. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

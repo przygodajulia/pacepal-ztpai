@@ -58,6 +58,15 @@
     .mobile-menu-container.show-menu {
         display: flex;
     }
+    .mobile-menu-container button {
+        background: none;
+        border: none;
+        color: black;
+        font-weight: 500;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 0;
+      }
     /* ------------------navigation and headers-------------------*/
     .default-nav-list {
         display: none;
@@ -138,7 +147,7 @@
         justify-content: space-evenly;
     }
     .single-login-form-2 {
-        display: none;
+        display: flex;
     }
     .create-subtitle {
         align-self: center;
@@ -918,3 +927,50 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
+
+/* -------------------mobile login and register----------------------*/
+
+   @media (max-width: 800px) {
+
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    header {
+      height: 15vh;
+    }
+  
+    .auth-main {
+      flex: 1;
+      overflow-y: auto;
+    }
+  
+    .login-forms-main-container {
+      height: auto;
+      min-height: calc(100vh - 15vh - 5vh);
+      padding-top: 1rem;
+      padding-bottom: 6vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+  
+    .single-login-form,
+    .single-login-form-1,
+    .single-login-form-2 {
+      height: auto !important;
+      max-height: none;
+      width: 90%;
+      max-width: 420px;
+    }
+
+    input {
+      margin: 0.4rem 0.8rem;
+    }
+  
+  }
+  

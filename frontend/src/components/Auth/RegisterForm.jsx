@@ -46,7 +46,7 @@ function RegisterForm() {
   };
 
   return (
-    <div className="single-login-form single-login-form-style single-login-form-2 js-validation-fields">
+    <div className="single-login-form single-login-form-style single-login-form-1 js-validation-fields">
       <img className="login-icon" src="/img/user.png" alt="user icon" />
       <h2 className="simple-login-header">Create account!</h2>
       <form onSubmit={handleRegister}>

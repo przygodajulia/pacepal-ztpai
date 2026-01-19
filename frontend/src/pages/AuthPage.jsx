@@ -1,14 +1,17 @@
 import LoginForm from "../components/Auth/LoginForm";
 import RegisterForm from "../components/Auth/RegisterForm";
-import MobileRegister from "../components/Auth/MobileRegister";
 
 function AuthPage() {
   return (
-    <div>
+    <div className="auth-page">
       {/* Header */}
       <div className="simple-login-header">
         <header>
-          <img className="header-img" src="/img/running_girl.png" alt="main logo image" />
+          <img
+            className="header-img"
+            src="/img/running_girl.png"
+            alt="main logo image"
+          />
           <div className="logo-login-page">
             <h1 className="default-header-text">Pacepal</h1>
           </div>
@@ -16,11 +19,10 @@ function AuthPage() {
       </div>
 
       {/* Main */}
-      <main>
+      <main className="auth-main">
         <div className="login-forms-main-container">
           <LoginForm />
           <RegisterForm />
-          <MobileRegister />
         </div>
       </main>
 
