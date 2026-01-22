@@ -11,7 +11,7 @@ function RaceDetailsPage() {
   const [error, setError] = useState("");
   const [signupStatus, setSignupStatus] = useState("");
   const [signupLoading, setSignupLoading] = useState(false);
-  const [signedUp, setSignedUp] = useState(false); // NEW: track if user registered
+  const [signedUp, setSignedUp] = useState(false);
 
   useEffect(() => {
     const fetchRace = async () => {
@@ -19,7 +19,6 @@ function RaceDetailsPage() {
         const res = await getRaceById(id);
         setRace(res.data);
 
-        // Optional: check if user is already registered
         if (res.data.isRegistered) {
           setSignedUp(true);
           setSignupStatus("You are already registered for this race!");
@@ -64,10 +63,10 @@ function RaceDetailsPage() {
 
   return (
     <div>
-      {/* NAVBAR */}
+      {/* Header */}
       <Navbar current="races" />
 
-      {/* MAIN CONTENT */}
+      {/* Main */}
       <main>
         <div className="race-details-main-container dark-gray-box-style gray-mobile-box">
           <div className="smaller-padding-and-margin displayed-races-single-container no-shadow">
@@ -93,7 +92,7 @@ function RaceDetailsPage() {
               <p className="race-details-text">${race.price}</p>
             </div>
 
-            {/* SIGN UP BUTTON */}
+            {/* Sign up button */}
             <button
               className="smaller-race-details-button blue-button race-details-button"
               onClick={handleSignUp}
@@ -102,7 +101,7 @@ function RaceDetailsPage() {
               {signupLoading ? "Signing up..." : signedUp ? "Registered" : "Sign Up!"}
             </button>
 
-            {/* SIGNUP STATUS MESSAGE */}
+            {/* Signup status */}
             {signupStatus && (
               <p style={{ marginTop: "10px", fontWeight: "bold", color: "black" }}>
                 {signupStatus}
@@ -117,7 +116,7 @@ function RaceDetailsPage() {
         </div>
       </main>
 
-      {/* FOOTER */}
+      {/* Footer */}
       <Footer />
     </div>
   );
