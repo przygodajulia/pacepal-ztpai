@@ -2,7 +2,8 @@ const MyRaces = require("../models/myraces.model");
 
 const getMyRaces = async (req, res) => {
   try {
-    const userId = req.user.id; // from requireAuth
+    // from requireAuth
+    const userId = req.user.id;
     const { rows } = await MyRaces.getUserRaces(userId);
     res.json(rows);
   } catch (err) {
