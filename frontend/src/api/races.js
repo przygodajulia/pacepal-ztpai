@@ -2,7 +2,7 @@ import axios from "axios";
 
 const backendUrl = "http://localhost:5001";
 
-// Helper to attach JWT
+// ------------------helper JWT ------------------
 const authHeader = () => {
   const token = localStorage.getItem("token");
   return {
@@ -23,10 +23,3 @@ export const getRaceById = (id) =>
 export const signUpForRace = (raceId) =>
   axios.post(`${backendUrl}/races/${raceId}/signup`, {}, authHeader());
 
-// ------------------ FILTER DATA ------------------
-
-// export const getRaceDistances = () =>
-//   axios.get(`${backendUrl}/races/filters/distances`, authHeader());
-
-// export const getRaceLocations = () =>
-//   axios.get(`${backendUrl}/races/filters/locations`, authHeader());
