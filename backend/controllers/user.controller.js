@@ -2,7 +2,8 @@ const User = require("../models/user.model");
 
 const getCurrentUser = async (req, res) => {
   try {
-    const userId = req.user.id; // from requireAuth
+    // from requireAuth
+    const userId = req.user.id;
     const { rows } = await User.getUserById(userId);
 
     if (rows.length === 0) {

@@ -15,7 +15,7 @@ function RaceCard({ race }) {
         className="displayed-races-single-container dark-gray-box-style gray-mobile-box"
         data-distance={race.distance}
         data-location={race.location}
-        data-date={formattedDate} // update data attribute as well
+        data-date={formattedDate}
       >
         <img
           className="default-race-img races-img"

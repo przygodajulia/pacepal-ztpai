@@ -28,7 +28,7 @@ function MyAccountPage() {
 
   const handleLogout = () => {
     logout();
-    navigate("/"); // redirect to login page
+    navigate("/");
   };
 
   if (loading) return <p>Loading...</p>;
@@ -37,10 +37,10 @@ function MyAccountPage() {
 
   return (
     <div>
-      {/* NAVBAR */}
+      {/* Header */}
       <Navbar current="my_account" />
 
-      {/* MAIN CONTENT */}
+      {/* Main */}
       <main>
         <div className="my-account-main-container my-account-mobile-box">
           <div className="my-account-header-container">
@@ -75,7 +75,7 @@ function MyAccountPage() {
         </div>
       </main>
 
-      {/* FOOTER */}
+      {/* Footer */}
       <Footer />
     </div>
   );

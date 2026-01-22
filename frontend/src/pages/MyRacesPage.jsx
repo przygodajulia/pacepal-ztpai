@@ -8,7 +8,7 @@ function MyRacesPage() {
   const [races, setRaces] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [filter, setFilter] = useState("all"); // "all", "upcoming", "finished"
+  const [filter, setFilter] = useState("all");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,10 +44,10 @@ function MyRacesPage() {
 
   return (
     <div>
-      {/* NAVBAR */}
+      {/* Header */}
       <Navbar current="my_races" />
 
-      {/* MAIN CONTENT */}
+      {/* Main */}
       <main>
         <div className="races-main-container">
           {/* Filters */}
@@ -102,7 +102,7 @@ function MyRacesPage() {
         </div>
       </main>
 
-      {/* FOOTER */}
+      {/* Footer */}
       <Footer />
     </div>
   );

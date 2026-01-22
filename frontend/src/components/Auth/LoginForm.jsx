@@ -1,20 +1,20 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // <-- added
-import { loginUser } from "../../api/auth"; // your API function
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../api/auth";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const navigate = useNavigate(); // <-- added
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const res = await loginUser(email, password);
-      const token = res.data.token; // get token from API response
-      localStorage.setItem("token", token); // store token locally
+      const token = res.data.token;
+      localStorage.setItem("token", token);
   
       setMessages(["Login successful!"]);
       console.log("LOGIN SUCCESS:", res.data);

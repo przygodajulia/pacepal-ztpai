@@ -8,8 +8,6 @@ CREATE TABLE IF NOT EXISTS users (
     location    VARCHAR
 );
 
--- ALTER TABLE users OWNER TO docker;
-
 -- RACES
 CREATE TABLE IF NOT EXISTS races (
     raceid      SERIAL PRIMARY KEY,
@@ -22,7 +20,31 @@ CREATE TABLE IF NOT EXISTS races (
     distance    VARCHAR
 );
 
--- Insert sample races
+-- USER REGISTRATIONS
+CREATE TABLE IF NOT EXISTS user_race_registration (
+    registrationid SERIAL PRIMARY KEY,
+    userid         INTEGER NOT NULL REFERENCES users(userid) ON DELETE CASCADE,
+    raceid         INTEGER NOT NULL REFERENCES races(raceid) ON DELETE CASCADE,
+    finished       VARCHAR(1)
+);
+
+-- ADMINS
+CREATE TABLE IF NOT EXISTS admins (
+    adminid   SERIAL PRIMARY KEY,
+    userid    INTEGER NOT NULL REFERENCES users(userid) ON DELETE CASCADE,
+    privilige VARCHAR
+);
+
+-- RACE RESULTS
+CREATE TABLE IF NOT EXISTS race_results (
+    resultid SERIAL PRIMARY KEY,
+    raceid   INTEGER NOT NULL REFERENCES races(raceid) ON DELETE CASCADE,
+    userid   INTEGER NOT NULL REFERENCES users(userid) ON DELETE CASCADE,
+    time     VARCHAR NOT NULL,
+    place    INTEGER NOT NULL
+);
+
+-- Insert sample races to fill db
 INSERT INTO races (title, location, date, price, description, imageurl, distance) VALUES
 
 -- ===== 2025 RACES (COMPLETED / PAST) =====
@@ -179,35 +201,3 @@ INSERT INTO races (title, location, date, price, description, imageurl, distance
  '/img/run1.jpeg',
  '42.2 km');
 
-
--- ALTER TABLE races OWNER TO docker;
-
--- USER REGISTRATIONS
-CREATE TABLE IF NOT EXISTS user_race_registration (
-    registrationid SERIAL PRIMARY KEY,
-    userid         INTEGER NOT NULL REFERENCES users(userid) ON DELETE CASCADE,
-    raceid         INTEGER NOT NULL REFERENCES races(raceid) ON DELETE CASCADE,
-    finished       VARCHAR(1)
-);
-
--- ALTER TABLE user_race_registration OWNER TO docker;
-
--- ADMINS
-CREATE TABLE IF NOT EXISTS admins (
-    adminid   SERIAL PRIMARY KEY,
-    userid    INTEGER NOT NULL REFERENCES users(userid) ON DELETE CASCADE,
-    privilige VARCHAR
-);
-
--- ALTER TABLE admins OWNER TO docker;
-
--- RACE RESULTS
-CREATE TABLE IF NOT EXISTS race_results (
-    resultid SERIAL PRIMARY KEY,
-    raceid   INTEGER NOT NULL REFERENCES races(raceid) ON DELETE CASCADE,
-    userid   INTEGER NOT NULL REFERENCES users(userid) ON DELETE CASCADE,
-    time     VARCHAR NOT NULL,
-    place    INTEGER NOT NULL
-);
-
--- ALTER TABLE race_results OWNER TO docker;

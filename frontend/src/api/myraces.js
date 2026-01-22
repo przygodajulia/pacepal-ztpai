@@ -9,5 +9,5 @@ const authHeader = () => {
   };
 };
 
-// Fetch all races the logged-in user is registered for
+// Fetch all races for register user
 export const getMyRaces = () => axios.get(`${backendUrl}/my_races`, authHeader());

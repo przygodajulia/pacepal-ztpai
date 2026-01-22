@@ -8,7 +8,6 @@ function RacesPage() {
   const [races, setRaces] = useState([]);
   const [search, setSearch] = useState("");
 
-  // Load races
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,7 +21,6 @@ function RacesPage() {
     fetchData();
   }, []);
 
-  // Apply search filter only
   const filteredRaces = races.filter((race) => {
     if (search && !race.title.toLowerCase().includes(search.toLowerCase()))
       return false;
@@ -31,7 +29,7 @@ function RacesPage() {
 
   return (
     <div>
-      {/* NAVBAR */}
+      {/* Header */}
       <Navbar current="races" />
 
       {/* MAIN */}
