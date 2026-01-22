@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Attach routes
+// Attach main routes
 app.use("/auth", authRoutes);
 app.use("/races", racesRouter);
 app.use("/my_races", myRacesRouter);
